@@ -1,0 +1,17 @@
+.weatherItemContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+
+
+}
+
+.weatherItem {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    align-items: center;
+    width: 50%;
+    padding-bottom: 25px;
+}

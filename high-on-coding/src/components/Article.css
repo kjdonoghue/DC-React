@@ -1,0 +1,20 @@
+.articleDiv {
+    margin: 25px;
+}
+
+.articleDiv h2 {
+    color: blue;
+
+
+}
+
+.commentDiv {
+    background-color: orange;
+    color: white; 
+    padding: 5px;
+}
+
+.commentDiv label {
+    margin: 10px;
+
+}

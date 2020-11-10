@@ -1,0 +1,19 @@
+.menu {
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+
+.menu h1 {
+    margin: 25px;
+}
+
+.menuItems {
+    margin-left: 25px;
+}
+
+.menuItems a {
+    margin-left: 25px;
+    color: white;
+}

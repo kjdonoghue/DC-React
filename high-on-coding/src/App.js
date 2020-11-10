@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import Menu from './components/Menu'
+import Lead from './components/Lead'
+import Article from './components/Article'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let watchKitText = "Last month Apple released the anticipated WatchKit Framework for developers in the form of iOS 8.2 beta SDK release. The WatchKit framework enable the developers to create Apple Watch applications. In this article we are going to focus on the basics of getting started with the WatchKit framework and developing apps for the Apple Watch."
+let swiftText = "Swift is a modern programming language developed by Apple to create the next generation of iOS and OSX applications. Swift is a fairly new language and still in development but it clearly reflects the intentions and the future direction. This article will revolve around the basic concepts in the Swift language and how you can get started."
+
+let articleList = [
+  {title:"Hello WatchKit", text: watchKitText, comments: 12, likes: 124}, 
+  {title:"Introduction to Swift", text: swiftText, comments: 15, likes: 45} 
+]
+
+class App extends Component {
+  render() {
+    return (
+    <div>
+      <Menu/>
+      <Lead/>
+      <Article listOfArticles = {articleList} />
+  </div>
+  )
+  } 
 }
+
 
 export default App;

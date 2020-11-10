@@ -1,32 +1,42 @@
 import React, {Component} from 'react'
-import DisplayCounter from "./components/DisplayCounter"
+// import DisplayCounter from "./components/DisplayCounter"
 import './App.css';
-
+// import Stepper from "./components/Stepper"
+import News from "./components/News"
 
 
 class App extends Component {
 
   constructor() {
     super()
-
     this.state = {
-      counter: 0
+      news: []
     }
 
   }
 
-  handleIncrementClick = () => {
-    this.setState({
-      counter: this.state.counter + 1
+  fetchNews = () => {
+    fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=0cf790498275413a9247f8b94b3843fd")
+    .then(response => response.json())
+    .then(result => {
+      console.log(result)
+      this.setState({
+        news: result.articles
+      })
     })
   }
 
-  render() {
+  componentDidMount() {
+    this.fetchNews()
+  }
+
+
+  render () {
     return (
       <div>
-        <DisplayCounter ctr = {this.state.counter}/>
-        <button onClick={this.handleIncrementClick}>Increment</button>
-
+      {/* <DisplayCounter />
+      <Stepper /> */}
+      <News news={this.state.news} />
       </div>
     )
   }

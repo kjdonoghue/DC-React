@@ -7,7 +7,7 @@ class Weather extends Component {
         
                 return <div key ={result.index} className="weatherItem">
                     <label><img src={`https://openweathermap.org/img/wn/${result.weather[0].icon}@4x.png`} alt="weather icon" /></label>
-                    <label>Date/time: {result.dt_txt}</label>
+                    <label><b>Date/Time: {result.dt_txt}</b></label>
                     <label>Temp: {result.main.temp}{'\u00b0'}F</label>
                     <label>Feels Like: {result.main.feels_like}{'\u00b0'} F</label>
                     <label>Weather: {result.weather[0].description}</label>

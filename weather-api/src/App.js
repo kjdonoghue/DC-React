@@ -1,6 +1,8 @@
 import './App.css';
 import { Component } from 'react';
 import Weather from './components/Weather';
+import Header from './components/Header';
+import Footer from './components/Footer'
 
 class App extends Component {
 
@@ -36,11 +38,11 @@ class App extends Component {
   render() {
     return  (
       <div className="appContainer">
-        <h1>Weather</h1>
-        <h2>5 Day Forecast (3 hour increments)</h2>
+        <Header />  
         <b>Enter your location:</b><input type="text" placeholder="city name" onChange={this.enterCity}/>
         <button onClick={this.submitButton}>Submit</button>
         <Weather weatherArray={this.state.weather} />
+        <Footer />
       </div>
     )
   }

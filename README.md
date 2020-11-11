@@ -11,4 +11,4 @@
 
 
 ### Weather API
-- Prompt was to fetch an API and display the contents on the screen. This weather app was made using the Open Weather Map API and requires the user to enter their city into a text box to fetch the weather information for their location. The weather information provided is a five day forecast featuring weather updates every three hours - [Visit Weather API](https://github.com/kjdonoghue/DC-React/tree/master/weather-api)
+- Prompt was to fetch an API and display the contents on the screen. This weather app asks the user to enter their city into a textbox and then it will pull and display the five day forecast (listed in 3 hour increments) for their location using the Open Weather Map API. - [Visit Weather API](https://github.com/kjdonoghue/DC-React/tree/master/weather-api)

@@ -1,5 +1,5 @@
 # DigitalCrafts Full-Stack Immersive: React
--Coursework on JavaScript. This repository contains assignments and activities from DigitalCrafts Week 10
+-Coursework on React. This repository contains assignments and activities from DigitalCrafts Week 10
 
 ## Summary of Work
 

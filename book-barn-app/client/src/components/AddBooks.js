@@ -1,49 +1,42 @@
-import React, {Component} from 'react'
+import React, {useState} from "react"
 
+function AddBooks(props) {
 
-class AddBooks extends Component {
-  constructor() {
-    super()
+    const [books, setBooks] = useState({})
 
-    this.state = {
-      title: "",
-      author: "",
-      cover: ""
+    const handleChange = (e) => {
+        setBooks({
+            ...books,
+            [e.target.name]: e.target.value
+        })
     }
-  }
 
-  handleOnChange = (e) => {
-    this.setState ({
-      [e.target.name]: e.target.value
-    })
-  }
-
-  handleSaveBook = () => {
-    fetch("http://localhost:8080/books", {
+    //add book
+    const handleOnClick = (e) => {
+        fetch("http://localhost:8080/books", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(this.state)
+      body: JSON.stringify(books)
     }).then(response => response.json())
     .then(result => {
       if (result.success) {
-        this.props.history.push("/")
+        props.history.push("/")
+        
       }
     })
   }
 
+    return (
+        <div>
+            <input type="text" name="title" placeholder="Title" onChange={handleChange} />
+            <input type="text" name="author" placeholder="Author" onChange={handleChange} />
+            <input type="text" name="cover" placeholder="Cover Art" onChange={handleChange} />
+            <button onClick={handleOnClick}>Submit</button>
 
-  render() {
-    return(
-      <div>
-        <input type="text" name="title" placeholder="Book Title" onChange={this.handleOnChange}/>
-        <input type="text" name="author" placeholder="Author" onChange={this.handleOnChange}/>
-        <input type="text" name="cover" placeholder="Cover" onChange={this.handleOnChange}/>
-        <button onClick={this.handleSaveBook}>Save Book</button>
-      </div>
+        </div>
     )
-  }
+
 }
 
 
-
-export default AddBooks;
+export default AddBooks

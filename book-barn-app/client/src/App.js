@@ -1,52 +1,44 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect}from "react"
 
 
-import './App.css';
+function App() {
 
-class App extends Component {
+    const [books, setBooks] = useState([])
 
-  constructor() {
-    super() 
+    useEffect(() => {
+        fetch("http://localhost:8080/books")
+        .then(response => response.json())
+        .then(result => {
+          setBooks(result)
+        })
+    }, [books])
 
-    this.state = {
-      books: []
+    function handleDelete(id) {
+        fetch(`http://localhost:8080/books/${id}`, {
+            method: "DELETE", 
+            }).then(response => response.json())
+            .then(result => {
+                if (result.success)
+                console.log("success")
+            })
     }
-  }
 
-fetchAllBooks = () => {
-    fetch("http://localhost:8080/books")
-    .then(response => response.json())
-    .then(results => {
-      this.setState({
-        books: results
-      })
+    const bookItems = books.map(book => {
+        return <li key={book.id}>
+          <img src={book.cover} />
+          <b>{book.title}</b>
+          <label>{book.author}</label>
+          <button onClick={() => handleDelete(book.id)}>Delete</button>
+        </li>
     })
-  }
 
-  componentDidMount() {
-    this.fetchAllBooks()
-  }
-
-
-  render() {
-    const bookItems = this.state.books.map(book => {
-      return <li key={book.id}>
-        <img src={book.cover} />
-        <b>{book.title}</b>
-        <label>{book.title}</label>
-      </li>
-      
-
-    })
-  
-    return(
-    
-     <ul>{bookItems}</ul>
-      
+    return (
+        <div>
+            {bookItems}
+        
+        </div>
     )
-  }
 }
-
 
 
 export default App;

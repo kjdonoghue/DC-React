@@ -1,18 +1,80 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+var bcrypt = require('bcryptjs');
+
 
 app.use(cors())
 app.use(express.json())
+
+
+
+let users = []
+
+
+// registration
+
+app.post("/register", (req, res) => {
+    let username = req.body.username
+    let password = req.body.password
+   
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(password, salt, function(err, hash) {
+            let user = {username: username, password: hash}
+            users.push(user)
+            res.json({success: true})
+        });
+    });
+
+    // res.json({success: false})
+
+})
+
+
+
+
+//login
+
+app.post("/login", (req, res) => {
+    let username = req.body.username
+    let password = req.body.password
+    
+    let verifiedUser = users.find(user => {
+         return user.username = username
+    })
+
+    if(verifiedUser) {
+        bcrypt.compare(password, verifiedUser.password, function(err,res) {
+            if (res) {
+                console.log ("yes")
+                res.json({success: true}) //need to fix so only redirects if yes
+                
+            } else {
+                console.log("no")
+            } 
+         
+    });
+    
+    }
+
+
+})
+
+
+
 
 let booksArray = [
     {
         title: "The Girl with the Louding Voice: A Novel",
         author: "Abi Daré",
         cover: "https://m.media-amazon.com/images/I/51rUKFsmKRL.jpg",
-        id: 1
+        id: 12
+}, {
+    title: "Hidden Valley Road: Inside the Mind of an American Family",
+    author: "Robert Kolker",
+    cover: "https://m.media-amazon.com/images/I/51M6LsORHAL.jpg",
+    id: 15
 },
-
 ]
 
 
@@ -34,14 +96,12 @@ app.post("/books", (req, res) => {
 })
 
 app.delete("/books/:id", (req, res) => {
-    let id = req.body.id
-    console.log(id)
-
+    let id = req.params.id
+    
     booksArray = booksArray.filter(book => {
         return book.id != id
-       
     })
-    // console.log(booksArray)
+    
     res.json({success: true})
 
 })

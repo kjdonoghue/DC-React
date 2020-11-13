@@ -1,0 +1,15 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 25px;
+
+}
+
+.inputContainer label {
+    margin: 5px;
+}
+
+.inputContainer button {
+    width: 25%;
+}

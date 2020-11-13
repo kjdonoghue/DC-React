@@ -1,0 +1,29 @@
+.menuContainer {
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.logoContainer {
+    font-size: xxx-large;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.logoContainer img {
+    height: 75px;
+}
+
+.linksContainer {
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.linksContainer a {
+    color:white;
+    margin: 25px;
+}

@@ -30,7 +30,7 @@ app.post("/register", (req, res) => {
 
 })
 
-
+let logins = []
 
 
 //login
@@ -44,10 +44,9 @@ app.post("/login", (req, res) => {
     })
 
     if(verifiedUser) {
-        bcrypt.compare(password, verifiedUser.password, function(err,res) {
-            if (res) {
-                console.log ("yes")
-                res.json({success: true}) //need to fix so only redirects if yes
+        bcrypt.compare(password, verifiedUser.password, function(err,request) {
+            if (request) {
+                res.json({success: true})
                 
             } else {
                 console.log("no")

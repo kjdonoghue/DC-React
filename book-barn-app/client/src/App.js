@@ -1,5 +1,5 @@
 import React, {useState, useEffect}from "react"
-
+import "./App.css"
 
 function App() {
 
@@ -24,16 +24,16 @@ function App() {
     }
 
     const bookItems = books.map(book => {
-        return <li key={book.id}>
-          <img src={book.cover} />
-          <b>{book.title}</b>
-          <label>{book.author}</label>
+        return <div key={book.id} className="bookItem">
+          <img src={book.cover} className="cover"/>
+          <label><b>{book.title}</b></label>
+          <label>Author: {book.author}</label>
           <button onClick={() => handleDelete(book.id)}>Delete</button>
-        </li>
+        </div>
     })
 
     return (
-        <div>
+        <div className="booksContainer">
             {bookItems}
         
         </div>

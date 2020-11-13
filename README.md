@@ -4,7 +4,7 @@ Coursework on React. This repository contains assignments and activities from Di
 ## Summary of Work
 
 ### Counter App
-Daily exercises include creating an app that counts clicks to a button, an app that allow the user to increment and decrement the value of a counter when the "+" or "-" buttons are clicked, and fetching and displaying news articles from a JSON - [Visit Counter App](https://github.com/kjdonoghue/DC-React/tree/master/counter-app)
+Daily exercises include creating an app that counts clicks to a button, two versions of an app that allow the user to increment and decrement the value of a counter when the "+" or "-" buttons are clicked - one using classes and one using hooks, and an app that fetches and displays news articles from an API - [Visit Counter App](https://github.com/kjdonoghue/DC-React/tree/master/counter-app)
 
 ### High on Coding
 Prompt was to create the home page of the High on Coding Website using React - [Visit High on Coding](https://github.com/kjdonoghue/DC-React/tree/master/high-on-coding)

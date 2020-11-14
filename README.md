@@ -15,3 +15,6 @@ Prompt was to fetch an API and display the contents on the screen. This weather 
 
 ### Book Barn App
 Prompt was to create an app using Node and React which allows you to register for an account, log in, add books (title, author, genre, year, and cover art) to your library, view, update and delete books. - [Visit Book Barn](https://github.com/kjdonoghue/DC-React/tree/master/book-barn-app)
+
+### Bank Account
+Prompt was to create an app using React and React Minimal Pie Chart which allows the user to enter ercentages for checking, saving and brokerage accounts which show on a pie chart. Information should be shared between sibling components (Budget & Chart) to display on the main page (App). - [Visit Bank Account](https://github.com/kjdonoghue/DC-React/tree/master/bank-account)

@@ -21,7 +21,7 @@ app.post("/register", (req, res) => {
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(password, salt, function(err, hash) {
             let user = {username: username, password: hash}
-            users.push(user)
+            users.push(user)   
             res.json({success: true})
         });
     });
@@ -47,9 +47,8 @@ app.post("/login", (req, res) => {
         bcrypt.compare(password, verifiedUser.password, function(err,request) {
             if (request) {
                 res.json({success: true})
-                
             } else {
-                console.log("no")
+                res.json({success: false})
             } 
          
     });

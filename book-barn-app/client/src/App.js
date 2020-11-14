@@ -1,5 +1,6 @@
 import React, {useState, useEffect}from "react"
 import "./App.css"
+import Delete from "./components/Delete"
 
 function App() {
 
@@ -13,29 +14,20 @@ function App() {
         })
     }, [books])
 
-    function handleDelete(id) {
-        fetch(`http://localhost:8080/books/${id}`, {
-            method: "DELETE", 
-            }).then(response => response.json())
-            .then(result => {
-                if (result.success)
-                console.log("success")
-            })
-    }
-
     const bookItems = books.map(book => {
         return <div key={book.id} className="bookItem">
           <img src={book.cover} className="cover"/>
           <label><b>{book.title}</b></label>
           <label>Author: {book.author}</label>
-          <button onClick={() => handleDelete(book.id)}>Delete</button>
+          <div className="deleteIcon">
+            <Delete id={book.id}/>
+          </div>
         </div>
     })
 
-    return (
+    return (      
         <div className="booksContainer">
             {bookItems}
-        
         </div>
     )
 }

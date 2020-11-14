@@ -15,6 +15,10 @@
     height: 75px;
 }
 
+.logoContainer b {
+    margin-left: 10px;
+}
+
 .linksContainer {
     background-color: black;
     color: white;

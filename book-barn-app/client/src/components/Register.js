@@ -1,6 +1,21 @@
 import React, {useState} from "react"
+import "./Register.css"
+import { makeStyles } from '@material-ui/core/styles';
+import {TextField, Button} from '@material-ui/core/'
+
+//For Material UI
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+})); 
 
 function Register(props) {
+    //for textboxes & button
+    const classes = useStyles();
 
     const [register, setRegister] = useState({})
 
@@ -26,11 +41,35 @@ function Register(props) {
     
 
     return(
-        <div>
+        <div className="registerContainer">
             <h1>Register</h1>
-            <input type="text" placeholder="username" name="username" onChange={handleRegister}/>
-            <input type="text" placeholder="password" name="password" onChange={handleRegister}/>
-            <button onClick={handleSubmit}>Submit</button>
+            <div>
+                <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                    id="outlined-secondary"
+                    label="Username"
+                    variant="outlined"
+                    color="secondary"
+                    name="username"
+                    onChange={handleRegister}
+                />
+                </form>
+                <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                id="outlined-secondary"
+                label="Password"
+                variant="outlined"
+                color="secondary"
+                name="password"
+                onChange={handleRegister}
+                />
+            </form>
+            </div>
+            <div className={classes.root}>
+                <Button variant="contained" color="primary" onClick={handleSubmit}>
+                    Submit
+                </Button>
+            </div>
         </div>
     )
 }

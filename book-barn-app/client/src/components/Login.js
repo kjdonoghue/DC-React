@@ -1,6 +1,21 @@
 import React, {useState} from "react"
+import "./Login.css"
+import { makeStyles } from '@material-ui/core/styles';
+import {TextField, Button} from '@material-ui/core/'
+
+//For Material UI
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+})); 
 
 function Login(props) {
+      //for textboxes & button
+      const classes = useStyles();
 
     const [login, setLogin] = useState({})
 
@@ -26,12 +41,36 @@ function Login(props) {
 
 
     return(
+        <div className="loginContainer">
+        <h1>Login</h1>
         <div>
-            <h1>Login</h1>
-            <input type="text" placeholder="username" name="username" onChange={handleOnChange} />
-            <input type="text" placeholder="password" name="password" onChange={handleOnChange} />
-            <button onClick={handleSubmit}>Submit</button>
+            <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+                id="outlined-secondary"
+                label="Username"
+                variant="outlined"
+                color="secondary"
+                name="username"
+                onChange={handleOnChange}
+            />
+            </form>
+            <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+            id="outlined-secondary"
+            label="Password"
+            variant="outlined"
+            color="secondary"
+            name="password"
+            onChange={handleOnChange}
+            />
+        </form>
         </div>
+        <div className={classes.root}>
+            <Button variant="contained" color="primary" onClick={handleSubmit}>
+                Submit
+            </Button>
+        </div>
+    </div>
     )
 }
 

@@ -15,7 +15,6 @@ class Menu extends Component {
           <div className="linksContainer">
             <b><NavLink to = "/">Home </NavLink> </b>
             <b><NavLink to = "/add-book">Add Book </NavLink></b>
-            <b><NavLink to = "/">Update Book </NavLink></b>
           </div>
       </div>
     )

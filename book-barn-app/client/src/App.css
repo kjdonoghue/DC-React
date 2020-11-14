@@ -7,14 +7,23 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
-  max-width: 250px;
+  max-width: 275px;
+  background-color: lightgray;
+  padding-top: 12px;
+
 
 }
 
 .bookItem img {
   max-width: 250px;
+  align-self: center;
 }
 
 .bookItem label {
   margin: 5px;
+}
+
+.deleteIcon {
+  display: flex;
+  justify-content: flex-end
 }

@@ -13,7 +13,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="appContainer">
       <h1>Bank Account Graph</h1>
       <Budget onUpdate ={handleOnChange}/>
       <Chart value ={value}/>

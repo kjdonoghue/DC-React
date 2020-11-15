@@ -20,9 +20,9 @@ function IconButtons(props) {
         }).then(response => response.json())
         .then(result => {
             if (result.success)
-            console.log("success")
+            window.location.reload()
         })
-}
+  }
  
   return (
     <div className={classes.root}>

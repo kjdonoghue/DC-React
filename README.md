@@ -4,7 +4,7 @@ Coursework on React. This repository contains assignments and activities from Di
 ## Summary of Work
 
 ### Book Barn App
-Prompt was to create an app using Node and React which allows you to register for an account, log in, add books (title, author, genre, year, and cover art) to your library, view, update and delete books. - [Visit Book Barn](https://github.com/kjdonoghue/DC-React/tree/master/book-barn-app)
+Prompt was to create an app using Node and React which allows you to register for an account, log in, add books (title, author, and cover art) to your library, as well as view and delete books. - [Visit Book Barn](https://github.com/kjdonoghue/DC-React/tree/master/book-barn-app)
 
 <img src="screenshots/book-barn.png" alt="book-barn" width=370>
 

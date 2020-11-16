@@ -33,8 +33,7 @@ function Login(props) {
             body: JSON.stringify(login)        
         }).then(response => response.json())
         .then(result => {
-            if (result.sucess)
-            console.log(props)
+            if (result.success)
             props.history.push("/")
         })
     }

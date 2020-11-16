@@ -7,14 +7,17 @@ function App() {
     const [books, setBooks] = useState([])
 
     useEffect(() => {
-      console.log("fired")
+       fetchBooks()
+
+    }, [])
+
+    const fetchBooks = () => {
         fetch("http://localhost:8080/books")
         .then(response => response.json())
         .then(result => {
           setBooks(result)
         })
-
-    }, [])
+    }
 
 
     const bookItems = books.map(book => {
@@ -23,7 +26,7 @@ function App() {
         <label><b>{book.title}</b></label>
         <label>Author: {book.author}</label>
         <div className="deleteIcon">
-        <Delete id={book.id}/> 
+        <Delete id={book.id} onDelete={fetchBooks}/> 
         </div>
       </div>
   })

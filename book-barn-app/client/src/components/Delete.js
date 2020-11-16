@@ -14,15 +14,17 @@ const useStyles = makeStyles((theme) => ({
 function IconButtons(props) {
   const classes = useStyles();
 
-  function handleDelete(id) {
+  
+  const handleDelete = (id) => {
     fetch(`http://localhost:8080/books/${id}`, {
         method: "DELETE", 
         }).then(response => response.json())
         .then(result => {
             if (result.success)
-            window.location.reload()
+            props.onDelete()
         })
   }
+
  
   return (
     <div className={classes.root}>

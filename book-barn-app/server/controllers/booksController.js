@@ -38,6 +38,33 @@ class BooksController {
        })
     }
 
+    getBookToUpdate = (req, res) => {
+        let id = req.params.id
+        console.log(id)
+        models.Book.findByPk(id).then(book => {
+            console.log(book)
+            res.json(book)
+        })
+    }
+
+    updateBook = (req, res) => {
+        let id = req.body.id
+        let title = req.body.title
+        let author = req.body.author
+        let cover = req.body.cover
+    
+        models.Book.update({
+            title: title,
+            author: author,
+            cover: cover
+        }, {where: {
+            id: id
+            }
+        }).then((updatedBook) => {
+            res.json({success: true})
+        }) 
+    }
+
 }
 
 module.exports = BooksController

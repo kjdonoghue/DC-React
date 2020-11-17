@@ -1,6 +1,7 @@
 import React, {useState, useEffect}from "react"
 import "./App.css"
 import Delete from "./components/Delete"
+import EditIcon from '@material-ui/icons/Edit';
 
 function App() {
 
@@ -19,14 +20,19 @@ function App() {
         })
     }
 
-
+  
     const bookItems = books.map(book => {
       return <div key={book.id} className="bookItem">
         <img src={book.cover} className="cover"/>
         <label><b>{book.title}</b></label>
         <label>Author: {book.author}</label>
-        <div className="deleteIcon">
-        <Delete id={book.id} onDelete={fetchBooks}/> 
+        <div className="icons">
+          <div>
+            <a href={book.id}><EditIcon /></a>
+          </div>
+          <div className="deleteIcon">
+            <Delete id={book.id} onDelete={fetchBooks}/> 
+          </div>
         </div>
       </div>
   })

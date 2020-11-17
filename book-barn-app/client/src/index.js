@@ -8,6 +8,7 @@ import AddBooks from "./components/AddBooks"
 import BaseLayout from "./components/BaseLayout"
 import Login from "./components/Login"
 import Register from "./components/Register"
+import UpdateBook from "./components/UpdateBook"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
           <Route component = {Login} path = "/login"/>
           <Route component = {App} path = "/" exact/>
           <Route component = {AddBooks} path = "/add-book"/>
+          <Route component = {UpdateBook} path = "/:id"/>
       </Switch>
       </BaseLayout>
     </BrowserRouter>

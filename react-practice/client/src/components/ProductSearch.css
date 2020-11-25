@@ -1,0 +1,16 @@
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.searchOptions {
+    display: flex;
+    width: 100%;
+
+}
+
+/* .searchResults {
+
+
+} */

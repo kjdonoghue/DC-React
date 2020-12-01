@@ -1,11 +1,13 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {NavLink} from "react-router-dom"
 import "./Menu.css"
 import books from "./Images/books.png"
+import {connect} from "react-redux"
+import Account from "./Account"
 
 
-class Menu extends Component {
-  render() {
+function Menu(props) {
+  
     return(
       <div className="menuContainer">
           <div className="logoContainer">
@@ -15,12 +17,21 @@ class Menu extends Component {
           <div className="linksContainer">
             <b><NavLink to = "/">Home </NavLink> </b>
             <b><NavLink to = "/add-book">Add Book </NavLink></b>
+            <Account />
+          </div>
+          <div>
+            <b><NavLink to = "/cart">Cart: {props.cartCount}</NavLink></b>
           </div>
       </div>
     )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    cartCount: state.itemCount
   }
 }
 
 
 
-export default Menu;
+export default connect(mapStateToProps)(Menu);

@@ -2,8 +2,10 @@ import React, {useState, useEffect}from "react"
 import "./App.css"
 import Delete from "./components/Delete"
 import EditIcon from '@material-ui/icons/Edit';
+import {connect} from "react-redux"
+import * as actionCreators from "./store/actions/actionCreators"
 
-function App() {
+function App(props) {
 
     const [books, setBooks] = useState([])
 
@@ -27,6 +29,7 @@ function App() {
         <label><b>{book.title}</b></label>
         <label>Author: {book.author}</label>
         <div className="icons">
+          <button onClick={() => props.onAddToCart(book)}>Add to Cart</button>
           <div>
             <a href={book.id}><EditIcon /></a>
           </div>
@@ -46,4 +49,10 @@ function App() {
 }
 
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddToCart: (books) => dispatch(actionCreators.addToCart(books))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

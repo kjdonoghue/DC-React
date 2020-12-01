@@ -9,19 +9,29 @@ import BaseLayout from "./components/BaseLayout"
 import Login from "./components/Login"
 import Register from "./components/Register"
 import UpdateBook from "./components/UpdateBook"
+import ShoppingCart from "./components/ShoppingCart"
+import {createStore} from "redux"
+import reducer from "./store/reducer"
+import {Provider} from "react-redux"
+
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <BaseLayout>
-        <Switch>
-          <Route component = {Register} path = "/register"/>
-          <Route component = {Login} path = "/login"/>
-          <Route component = {App} path = "/" exact/>
-          <Route component = {AddBooks} path = "/add-book"/>
-          <Route component = {UpdateBook} path = "/:id"/>
-      </Switch>
-      </BaseLayout>
+    <Provider store={store}>
+        <BaseLayout>
+          <Switch>
+            <Route component = {Register} path = "/register"/>
+            <Route component = {Login} path = "/login"/>
+            <Route component = {App} path = "/" exact/>
+            <Route component = {AddBooks} path = "/add-book" />
+            <Route component = {ShoppingCart} path = "/cart"/>
+            <Route component = {UpdateBook} path = "/:id"/>
+            
+          </Switch>
+        </BaseLayout>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

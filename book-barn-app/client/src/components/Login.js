@@ -2,6 +2,10 @@ import React, {useState} from "react"
 import "./Login.css"
 import { makeStyles } from '@material-ui/core/styles';
 import {TextField, Button} from '@material-ui/core/'
+import {NavLink} from "react-router-dom"
+import {connect} from "react-redux"
+import * as actionTypes from "../store/actions/actionTypes"
+
 
 //For Material UI
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +38,7 @@ function Login(props) {
         }).then(response => response.json())
         .then(result => {
             if (result.success)
+            props.onLogIn()
             props.history.push("/")
         })
     }
@@ -69,8 +74,15 @@ function Login(props) {
                 Submit
             </Button>
         </div>
+        <b><NavLink to = "/register">Register For An Account</NavLink></b>
     </div>
     )
 }
 
-export default Login
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onLogIn: () => dispatch({type: actionTypes.LOGGED_IN})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

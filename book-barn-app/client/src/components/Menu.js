@@ -35,7 +35,7 @@ function Menu(props) {
             <b><NavLink to = "/cart"> 
               <IconButton aria-label="cart">
                 <StyledBadge badgeContent={props.cartCount} color="primary">
-                  <ShoppingCartIcon color="white"/>
+                  <ShoppingCartIcon />
                 </StyledBadge>
               </IconButton>
             </NavLink></b>

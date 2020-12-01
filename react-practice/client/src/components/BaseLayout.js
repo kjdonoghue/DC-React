@@ -8,7 +8,6 @@ function BaseLayout() {
     return (
         <div>
             <Header />
-            {/* <Sidebar /> */}
         </div>
     )
 

@@ -1,4 +1,6 @@
 import React, {useState, useEffect}from "react"
+import "./ProductSearch.css"
+import DisplayRating from "./DisplayRating"
 
 
 function ProductSearchResults(props) {
@@ -18,18 +20,24 @@ function ProductSearchResults(props) {
           console.log(result)
         })
     }
-   
+
+  
     const products = items.map(item => {
-        return <div>
-            <label>{item.name}</label>
+         return <div key={item.id} className="product">
+             <a href={item.id}>{item.name}</a>
+             <p>${item.price_unit} </p>
+             <DisplayRating/>
+        
+            {/* <img src={item.description} /> */}
+            <button>add to cart</button>
         </div>
     })
-
+    
         
     return (
-        <div>             
-            <div className="ProductDisplay">
-                <h3> Product Display</h3>
+        <div>         
+            <div className="productDisplay">
+                
                 {products}
             </div>
 

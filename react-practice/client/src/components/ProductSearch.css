@@ -14,3 +14,14 @@
 
 
 } */
+.productDisplay {
+    display: flex;
+}
+
+
+.product {
+    
+    margin: 10px;
+    padding:10px;
+    background-color: gray;
+}

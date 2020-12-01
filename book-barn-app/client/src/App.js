@@ -4,6 +4,8 @@ import Delete from "./components/Delete"
 import EditIcon from '@material-ui/icons/Edit';
 import {connect} from "react-redux"
 import * as actionCreators from "./store/actions/actionCreators"
+import IconButton from '@material-ui/core/IconButton';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 function App(props) {
 
@@ -28,8 +30,10 @@ function App(props) {
         <img src={book.cover} className="cover"/>
         <label><b>{book.title}</b></label>
         <label>Author: {book.author}</label>
-        <div className="icons">
-          <button onClick={() => props.onAddToCart(book)}>Add to Cart</button>
+        <div className="icons">          
+          <IconButton color="primary" aria-label="add to shopping cart" onClick={() => props.onAddToCart(book)}>
+            <AddShoppingCartIcon />
+          </IconButton>
           <div>
             <a href={book.id}><EditIcon /></a>
           </div>

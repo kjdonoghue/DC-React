@@ -1,7 +1,7 @@
 import React from "react"
-import ProductSearch from "./ProductSearch"
-import VendorSearch from "./VendorSearch"
-import ProductSearchResults from "./ProductSearchResults"
+// import ProductSearch from "./ProductSearch"
+// import VendorSearch from "./VendorSearch"
+// import ProductSearchResults from "./ProductSearchResults"
 import "./ProductList.css"
 
 function ProductList() {
@@ -9,9 +9,7 @@ function ProductList() {
     return (
         <div>
             <div className="searchOptions">
-                <ProductSearch />
-                <VendorSearch />
-                <ProductSearchResults />
+               <p>hello</p>
             </div>
             <div className="ProductDisplay">
 

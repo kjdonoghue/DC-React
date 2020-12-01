@@ -20,8 +20,8 @@
 }
 
 .linksContainer {
-    background-color: black;
-    color: white;
+    background-color: lightgray;
+    color: black;
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -30,4 +30,9 @@
 .linksContainer a {
     color:white;
     margin: 25px;
+}
+
+
+.cartNav {
+    float: right;
 }

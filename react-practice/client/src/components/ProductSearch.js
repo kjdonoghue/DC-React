@@ -69,7 +69,8 @@ console.log(search)
   }, [open]);
 
   return (
-    <div className="searchContainer">
+     <div className="searchContainer">
+          <h2>Shop the Market</h2>
     <div className={classes.root}>
       <div className="searchOptions">
       <div>
@@ -133,7 +134,7 @@ console.log(search)
       </div>
     </div> 
       <div className="searchResults">
-      <ProductSearchResults search ={search}/>
+      <ProductSearchResults search ={search} />
       </div>
     
     </div> 

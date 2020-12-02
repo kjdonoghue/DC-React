@@ -6,6 +6,7 @@ import {connect} from "react-redux"
 import * as actionCreators from "./store/actions/actionCreators"
 import IconButton from '@material-ui/core/IconButton';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 function App(props) {
 
@@ -23,14 +24,17 @@ function App(props) {
           setBooks(result)
         })
     }
-
   
     const bookItems = books.map(book => {
       return <div key={book.id} className="bookItem">
         <img src={book.cover} className="cover"/>
         <label><b>{book.title}</b></label>
         <label>Author: {book.author}</label>
-        <div className="icons">          
+        <div className="icons"> 
+          <IconButton color="secondary" aria-label="add an alarm" onClick={() => props.onAddFavorite(book)}>
+            <FavoriteIcon />
+          </IconButton>
+          
           <IconButton color="primary" aria-label="add to shopping cart" onClick={() => props.onAddToCart(book)}>
             <AddShoppingCartIcon />
           </IconButton>
@@ -52,10 +56,10 @@ function App(props) {
     )
 }
 
-
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddToCart: (books) => dispatch(actionCreators.addToCart(books))
+    onAddToCart: (books) => dispatch(actionCreators.addToCart(books)),
+    onAddFavorite: (favorite) => dispatch(actionCreators.addToFavorites(favorite))
   }
 }
 

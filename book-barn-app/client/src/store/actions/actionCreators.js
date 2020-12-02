@@ -11,3 +11,9 @@ export const loggedIn = () => {
     return {type: "LOGGED_IN"}
 }
 
+export const addToFavorites = (favorite) => {
+    return {
+        type: actionTypes.ADD_TO_FAVORITES, 
+        payload: favorite
+    }
+}

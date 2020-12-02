@@ -10,11 +10,20 @@ import Login from "./components/Login"
 import Register from "./components/Register"
 import UpdateBook from "./components/UpdateBook"
 import ShoppingCart from "./components/ShoppingCart"
-import {createStore} from "redux"
-import reducer from "./store/reducer"
+import Favorites from "./components/Favorites"
+import {createStore, combineReducers} from "redux"
 import {Provider} from "react-redux"
+import cartReducer from "./store/reducers/cart"
+import favoritesReducer from "./store/reducers/favorites"
+import authenticatedReducer from "./store/reducers/authenticated"
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const rootReducer = combineReducers({
+  cartReducer: cartReducer,
+  favoritesReducer: favoritesReducer,
+  authenticatedReducer: authenticatedReducer
+})
+
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <React.StrictMode>
@@ -26,9 +35,9 @@ ReactDOM.render(
             <Route component = {Login} path = "/login"/>
             <Route component = {App} path = "/" exact/>
             <Route component = {AddBooks} path = "/add-book" />
+            <Route component = {Favorites} path = "/favorites" />
             <Route component = {ShoppingCart} path = "/cart"/>
             <Route component = {UpdateBook} path = "/:id"/>
-            
           </Switch>
         </BaseLayout>
       </Provider>

@@ -41,12 +41,15 @@ function UpdateBook(props) {
 
     
 return(
-<div>
-    <input type="text" value={book.title} name="title" onChange={handleOnChange}/>
-    <input type="text" value={book.author} name="author" onChange={handleOnChange}/>
-    <input type="text" value={book.cover} name="cover" onChange={handleOnChange}/>
-    <button onClick={() => handleOnSubmit(book)}>Submit</button>
-</div>
+    <div>
+        <h1>Update Book Information</h1>
+    <div>
+        <input type="text" value={book.title} name="title" onChange={handleOnChange}/>
+        <input type="text" value={book.author} name="author" onChange={handleOnChange}/>
+        <input type="text" value={book.cover} name="cover" onChange={handleOnChange}/>
+        <button onClick={() => handleOnSubmit(book)}>Submit</button>
+    </div>
+    </div>
 )
 
 }

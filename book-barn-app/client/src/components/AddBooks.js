@@ -31,8 +31,6 @@ function AddBooks(props) {
         <div className="inputContainer">
             <label><b>Title: </b><input type="text" name="title" placeholder="Title" onChange={handleChange} /></label>
             <label><b>Author: </b><input type="text" name="author" placeholder="Author" onChange={handleChange} /></label>
-            {/* <label><b>Genre: </b><input type="text" name="genre" placeholder="Genre" onChange={handleChange} /></label>
-            <label><b>Year: </b><input type="text" name="year" placeholder="Year" onChange={handleChange} /></label> */}
             <label><b>Cover: </b><input type="text" name="cover" placeholder="Cover Art" onChange={handleChange} /></label>
             <button onClick={handleOnClick}>Submit</button>
 

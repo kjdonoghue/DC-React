@@ -3,9 +3,7 @@ import {connect} from "react-redux"
 
 function ShoppingCart(props) {
 
-    console.log(props)
-
-    let bookItem = props.booksInCart.map(book => {
+   let bookItem = props.booksInCart.map(book => {
         return <li key={book.id}>{book.title} </li>
     })
 
@@ -13,16 +11,13 @@ function ShoppingCart(props) {
         <div>
             <h1>Cart</h1>
             <ul>{bookItem}</ul>
-
         </div>
-
     )
-
 }    
 
 const mapStateToProps = (state) => {
     return {
-       booksInCart: state.cart 
+       booksInCart: state.cartReducer.cart 
     }
 }
 

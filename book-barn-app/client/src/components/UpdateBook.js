@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react"
+import axios from "axios"
 
 function UpdateBook(props) {
 
     const [book, setBook] = useState({})
-
+    
     useEffect (() => {
         let id = props.match.params.id
         fetchBook(id) 
@@ -11,10 +12,9 @@ function UpdateBook(props) {
     }, [])
 
     const fetchBook = (id) => {
-         fetch(`http://localhost:8080/books/${id}`)
-        .then(response => response.json())
-        .then(result => {
-          setBook(result)
+        axios.get(`http://localhost:8080/books/${id}`)
+        .then(response => {
+            setBook(response.data)
         })
     }
 

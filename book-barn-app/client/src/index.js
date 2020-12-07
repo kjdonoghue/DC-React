@@ -16,6 +16,7 @@ import {Provider} from "react-redux"
 import cartReducer from "./store/reducers/cart"
 import favoritesReducer from "./store/reducers/favorites"
 import authenticatedReducer from "./store/reducers/authenticated"
+import {setAuthenticationHeader} from './utils/authenticate'
 
 const rootReducer = combineReducers({
   cartReducer: cartReducer,
@@ -24,6 +25,8 @@ const rootReducer = combineReducers({
 })
 
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const token = localStorage.getItem('jsonwebtoken')
+setAuthenticationHeader(token)
 
 ReactDOM.render(
   <React.StrictMode>

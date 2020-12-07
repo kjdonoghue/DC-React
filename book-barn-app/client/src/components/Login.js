@@ -5,6 +5,8 @@ import {TextField, Button} from '@material-ui/core/'
 import {NavLink} from "react-router-dom"
 import {connect} from "react-redux"
 import * as actionTypes from "../store/actions/actionTypes"
+import axios from "axios"
+import { setAuthenticationHeader} from '../utils/authenticate'
 
 
 //For Material UI
@@ -30,19 +32,38 @@ function Login(props) {
         })
     }
 
+    // original coed before JWT
+    // const handleSubmit = (e) => {
+    //     fetch("http://localhost:8080/login", {
+    //         method: "POST",
+    //         headers: {"Content-Type": "application/json"},
+    //         body: JSON.stringify(login)        
+    //     }).then(response => response.json())
+    //     .then(result => {
+    //         if (result.success)
+    //      
+    //     })
+    // }
+
+
     const handleSubmit = (e) => {
-        fetch("http://localhost:8080/login", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(login)        
-        }).then(response => response.json())
-        .then(result => {
-            if (result.success)
-            props.onLogIn()
-            props.history.push("/")
+        axios.post('http://localhost:8080/login', {
+            username: login.username,
+            password: login.password
+        })
+        .then(response => {
+           const token = response.data.token
+           console.log(token)
+           if (token) {
+                localStorage.setItem("jsonwebtoken", token)
+                setAuthenticationHeader(token)
+                props.onLogIn()
+                props.history.push("/")
+           } else {
+                console.log("no token")
+           }
         })
     }
-
 
     return(
         <div className="loginContainer">

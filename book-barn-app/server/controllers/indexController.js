@@ -31,40 +31,21 @@ class IndexController {
         models.User.findOne({where: {username: username} })
         .then((foundUser) => {
             if (foundUser === null) {
-                console.log("user not found")
-                res.json({success: false})
+                res.json({message: "user not found"})
             } else {
                 bcrypt.compare(password, foundUser.password, function(err,request) {
                     if (request) {
                         const token = jwt.sign({username: username}, process.env.JWT_CODE)
                         res.json({token: token})
-                        // res.json({success: true})
                     } else {
-                        console.log("password found")
-                        res.json({success: false})
+                        res.json({message: "password not found"})
                     }     
                 })
             }
+        
         })
-    
-
-        //original code before JWT
-        // models.User.findOne({where: {username: username} })
-        // .then((foundUser) => {
-        //     if (foundUser === null) {
-        //         res.json({success: false})
-        //     } else {
-        //         bcrypt.compare(password, foundUser.password, function(err,request) {
-        //             if (request) {
-        //                 res.json({success: true})
-        //             } else {
-        //                 res.json({success: false})
-        //             }     
-        //         })
-        //     }
-        // })
     }
-
+    
 }
 
 

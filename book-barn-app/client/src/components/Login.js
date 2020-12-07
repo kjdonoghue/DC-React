@@ -32,35 +32,27 @@ function Login(props) {
         })
     }
 
-    // original coed before JWT
-    // const handleSubmit = (e) => {
-    //     fetch("http://localhost:8080/login", {
-    //         method: "POST",
-    //         headers: {"Content-Type": "application/json"},
-    //         body: JSON.stringify(login)        
-    //     }).then(response => response.json())
-    //     .then(result => {
-    //         if (result.success)
-    //      
-    //     })
-    // }
-
-
     const handleSubmit = (e) => {
         axios.post('http://localhost:8080/login', {
             username: login.username,
             password: login.password
         })
         .then(response => {
+                        
            const token = response.data.token
-           console.log(token)
            if (token) {
                 localStorage.setItem("jsonwebtoken", token)
                 setAuthenticationHeader(token)
                 props.onLogIn()
                 props.history.push("/")
-           } else {
-                console.log("no token")
+            } else if (response.data.message = "username or password empty") {
+                console.log("username or password was empty")
+            } else if (response.data.message == "user not found") {
+                console.log("user is not found")
+            } else if (response.data.message == "password not found") {
+                console.log("password is not found")
+            } else {
+                console.log("your entry was not accepted")
            }
         })
     }
